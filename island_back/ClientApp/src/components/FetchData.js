@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 export function FetchData(props){
-    const [tktype,setTktype] = useState();
+    const [tktype,setTktype] = useState([]);
 
     const fd =async ()=>{
         const response = await fetch('ticket');
@@ -14,16 +14,37 @@ export function FetchData(props){
 
     return <>
     <ol>
-      {tktype.map(tk =>
-            <li key={tk.ActivityTypeID}>
-              {tk.ActivityTypeDescription}
-            </li>
-          )}
+            {tktype.map((tk,index) =>
+                <li key={tk.activityID}>
+                    {tk.activityNotes }
+                    {/*JSON.stringify(tk)*/} 
+                </li>
+            )}
     </ol>
     </>;
 }
 
 /*
+{
+        "activityID": 1,
+        "activityTypeID": 0,
+        "activityCreationDate": "2024-08-27T09:07:39.493989+02:00",
+        "activityDueTime": "2024-09-10T09:07:39.4939914+02:00",
+        "activityDoneTime": "9999-12-31T23:59:59.9999999",
+        "isDeleted": false,
+        "isDone": false,
+        "activityTargetID": 0,
+        "activityTargetName": "",
+        "activityCreatorID": 0,
+        "activityCreatorName": "",
+        "activityAssigneeID": 0,
+        "activityAssigneeName": ""
+    },
+{tktype.map(tk =>
+            <li key={tk.ActivityTypeID}>
+              {tk.ActivityTypeDescription}
+            </li>
+          )}
 export class FetchData extends Component {
   static displayName = FetchData.name;
 

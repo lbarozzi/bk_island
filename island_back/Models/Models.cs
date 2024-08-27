@@ -28,12 +28,14 @@ public class Activity {
     public string ActivityCreatorName { get; set; }
     public int ActivityAssigneeID { get; set; }
     public string ActivityAssigneeName { get; set; } 
+    public string ActivityNotes { get; set; }
 
     public Activity(){
         this.ActivityCreationDate= DateTime.Now;
         this.ActivityCreatorName= string.Empty;
         this.ActivityAssigneeName=string.Empty;
         this.ActivityTargetName=string.Empty;
+        this.ActivityNotes = string.Empty;
         this.ActivityType= new ActivityType();
     }
 }
