@@ -26,7 +26,6 @@ export function ActivityList(props) {
     useEffect(() => { getTkType(); }, []);
     useEffect(() => { getTk(); }, []);
 
-
     return <>
         <table className="table table-striped" aria-labelledby="tableLabel">
             <thead>

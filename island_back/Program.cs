@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using island_back.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddCors();
@@ -39,7 +42,7 @@ string cnstring = builder.Configuration.GetConnectionString("maindb")??String.Em
 if (cnstring == string.Empty)
     throw new KeyNotFoundException("Missing maindb connection string");
 
-//builder.Services.AddDbContext<WaspContext>(options => options.UseNpgsql(cnstring));
+builder.Services.AddDbContext<DataContext>(options => options.UseSqlite(cnstring));
 
 
 var app = builder.Build();
